@@ -1,5 +1,11 @@
-    // to explicitly tell the system that it's a number type
-    const calculateFee = (cartValue: number, deliveryDistance: number, numberOfItems: number) => {
+    // to explicitly tell the system that it's a number type: type definition 
+    type CalculatorFeeProps = {
+        cartValue: number,
+        deliveryDistance: number,
+        numberOfItems: number
+    }
+
+    const calculateFee = ({cartValue, deliveryDistance, numberOfItems} : CalculatorFeeProps) => {
         if (cartValue >= 200)
             return 0;
 

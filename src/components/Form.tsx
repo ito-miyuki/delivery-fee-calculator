@@ -1,10 +1,12 @@
 import { useState } from "react";
 import calculateFee from "../utils/calculateFee";
 
+const now = new Date().toISOString().slice(0, 16)
+
 function Form() {
-    const [cartValue, setCartValue] = useState<string>(""); // init with 0, setCartValue is a function to modify the value of cartValue
-    const [deliveryDistance, setDeliveryDistance] = useState<string>("");
-    const [numberOfItems, setNumberOfItems] = useState<string>("");
+    const [cartValue, setCartValue] = useState<number>(0); // init with 0, setCartValue is a function to modify the value of cartValue
+    const [deliveryDistance, setDeliveryDistance] = useState<number>(0);
+    const [numberOfItems, setNumberOfItems] = useState<number>(0);
 
     const [deliveryFee, setDeliveryFee] = useState(0);
 
@@ -13,16 +15,15 @@ function Form() {
         e.preventDefault(); // to prevent from reloat when it is submitted
 
         //value is a string, if it is empty, set the value as 0, otherwise parse the value
-        const fee = calculateFee(
-            cartValue === "" ? 0 : parseFloat(cartValue),
-            deliveryDistance === "" ? 0 : parseInt(deliveryDistance),
-            numberOfItems === "" ? 0 : parseInt(numberOfItems))
+        const fee = calculateFee({
+            numberOfItems, deliveryDistance, cartValue}
+        )
         setDeliveryFee(fee);
     }
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-group">
-                <label htmlFor="cartValue">Cart value</label>
+                <label htmlFor="cartValue" data-test-id="cart-value-label">Cart value</label>
                 <input
                     type="number"
                     id="cartValue"
@@ -31,7 +32,7 @@ function Form() {
                     min="0.1"
                     step="0.1"
                     value={cartValue}
-                    onChange={(e) => setCartValue(e.target.value)}
+                    onChange={(e) => setCartValue(parseFloat(e.target.value))}
                     // why parse? because value in input is a string even tyoe is number.
                 />
                 <span>€</span>
@@ -47,7 +48,7 @@ function Form() {
                     min="0"
                     step="1"
                     value={deliveryDistance}
-                    onChange={(e) => setDeliveryDistance(e.target.value)}
+                    onChange={(e) => setDeliveryDistance(parseFloat(e.target.value))}
                 />
                 <span>m</span>
             </div>
@@ -62,7 +63,7 @@ function Form() {
                     min="0"
                     step="1"
                     value={numberOfItems}
-                    onChange={(e) => setNumberOfItems(e.target.value)}
+                    onChange={(e) => setNumberOfItems(parseFloat(e.target.value))}
                 />
             </div>
 
@@ -73,7 +74,7 @@ function Form() {
                     id="orderTime"
                     name="orderTime"
                     placeholder="Select Order Time"
-                    min={new Date().toISOString().slice(0, 16)}
+                    min={now}
                 />
             </div>
 
