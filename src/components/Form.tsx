@@ -2,9 +2,9 @@ import { useState } from "react";
 import calculateFee from "../utils/calculateFee";
 
 function Form() {
-    const [cartValue, setCartValue] = useState(""); // init with 0, setCartValue is a function to modify the value of cartValue
-    const [deliveryDistance, setDeliveryDistance] = useState("");
-    const [numberOfItem, setNumberOfItem] = useState("");
+    const [cartValue, setCartValue] = useState<string>(""); // init with 0, setCartValue is a function to modify the value of cartValue
+    const [deliveryDistance, setDeliveryDistance] = useState<string>("");
+    const [numberOfItems, setNumberOfItems] = useState<string>("");
 
     const [deliveryFee, setDeliveryFee] = useState(0);
 
@@ -16,7 +16,7 @@ function Form() {
         const fee = calculateFee(
             cartValue === "" ? 0 : parseFloat(cartValue),
             deliveryDistance === "" ? 0 : parseInt(deliveryDistance),
-            numberOfItem === "" ? 0 : parseInt(numberOfItem))
+            numberOfItems === "" ? 0 : parseInt(numberOfItems))
         setDeliveryFee(fee);
     }
     return (
@@ -61,8 +61,8 @@ function Form() {
                     placeholder="0"
                     min="0"
                     step="1"
-                    value={numberOfItem}
-                    onChange={(e) => setNumberOfItem(e.target.value)}
+                    value={numberOfItems}
+                    onChange={(e) => setNumberOfItems(e.target.value)}
                 />
             </div>
 

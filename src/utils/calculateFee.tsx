@@ -1,5 +1,5 @@
     // to explicitly tell the system that it's a number type
-    const calculateFee = (cartValue: number, deliveryDistance: number, numberOfItem: number) => {
+    const calculateFee = (cartValue: number, deliveryDistance: number, numberOfItems: number) => {
         if (cartValue >= 200)
             return 0;
 
@@ -16,11 +16,11 @@
         }
 
         let feeForItemsNum = 0;
-        if (numberOfItem >= 5) {
-            if (numberOfItem >= 13) {
+        if (numberOfItems >= 5) {
+            if (numberOfItems >= 13) {
                 feeForItemsNum = 1.2;
             }
-            feeForItemsNum += (numberOfItem - 4) * 0.5;
+            feeForItemsNum += (numberOfItems - 4) * 0.5;
         }
 
         // Add peak time handling here
