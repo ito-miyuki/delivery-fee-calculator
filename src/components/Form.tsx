@@ -23,7 +23,7 @@ function Form() {
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-group">
-                <label htmlFor="cartValue" data-test-id="cart-value-label">Cart value</label>
+                <label htmlFor="cartValue" data-testid="cart-value-label">Cart value</label>
                 <input
                     type="number"
                     id="cartValue"
