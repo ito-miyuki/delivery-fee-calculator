@@ -1,4 +1,5 @@
 import { useState } from "react";
+import calculateFee from "../utils/calculateFee";
 
 function Form() {
     const [cartValue, setCartValue] = useState(""); // init with 0, setCartValue is a function to modify the value of cartValue
@@ -6,11 +7,6 @@ function Form() {
     const [numberOfItem, setNumberOfItem] = useState("");
 
     const [deliveryFee, setDeliveryFee] = useState(0);
-
-    // to explicitly tell the system that it's a number type
-    const calculateFee = (cartValue: number, deliveryDistance: number, numberOfItem: number) => {
-        return cartValue + deliveryDistance + numberOfItem
-    }
 
     // to explicitly tell the system that it's an form event object
     const handleSubmit = (e: React.FormEvent) => {
@@ -73,11 +69,11 @@ function Form() {
             <div className="form-group">
                 <label htmlFor="orderTime">Time</label>
                 <input
-                    type="date"
+                    type="datetime-local"
                     id="orderTime"
                     name="orderTime"
                     placeholder="Select Order Time"
-                    min={new Date().toISOString().split("T")[0]} // 2024-12-14T12:34:56.789Z -> ["2024-12-14", "12:34:56.789Z"]
+                    min={new Date().toISOString().slice(0, 16)}
                 />
             </div>
 
