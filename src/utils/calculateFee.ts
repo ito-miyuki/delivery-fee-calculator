@@ -2,10 +2,11 @@
     type CalculatorFeeProps = {
         cartValue: number,
         deliveryDistance: number,
-        numberOfItems: number
+        numberOfItems: number,
+        orderTime: string
     }
 
-    const calculateFee = ({cartValue, deliveryDistance, numberOfItems} : CalculatorFeeProps) => {
+    const calculateFee = ({cartValue, deliveryDistance, numberOfItems, orderTime} : CalculatorFeeProps) => {
         if (cartValue >= 200)
             return 0;
 
@@ -29,14 +30,20 @@
             feeForItemsNum += (numberOfItems - 4) * 0.5;
         }
 
-        // Add peak time handling here
-        // if it's a peal time, total * 1.2
-
         let total = feeForCart + feeForDistance + feeForItemsNum;
-        if (total > 15)
-            total = 15;
 
-        return total;
+        const selectedTime = new Date(orderTime);
+
+
+        if (selectedTime.getHours() >= 15 && selectedTime.getHours() <= 18) { // after 19:00 is fine
+            total *= 1.2;
+        }
+
+        if (total > 15) {
+            total = 15;
+        }
+
+        return parseFloat(total.toFixed(2));
     }
 
     export default calculateFee;

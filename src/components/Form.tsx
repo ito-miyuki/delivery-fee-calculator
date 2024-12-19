@@ -1,22 +1,23 @@
 import { useState } from "react";
 import calculateFee from "../utils/calculateFee";
 
-const now = new Date().toISOString().slice(0, 16)
+const now = new Date();
 
 function Form() {
     const [cartValue, setCartValue] = useState<number>(0); // init with 0, setCartValue is a function to modify the value of cartValue
     const [deliveryDistance, setDeliveryDistance] = useState<number>(0);
     const [numberOfItems, setNumberOfItems] = useState<number>(0);
+    const [orderTime, setOrderTime] = useState<string>("");
 
     const [deliveryFee, setDeliveryFee] = useState(0);
 
-    // to explicitly tell the system that it's an form event object
+    // e: React.FormEvent: to explicitly tell the system that it's an form event object
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault(); // to prevent from reloat when it is submitted
+        e.preventDefault(); // to prevent from reload when it is submitted
 
         //value is a string, if it is empty, set the value as 0, otherwise parse the value
         const fee = calculateFee({
-            numberOfItems, deliveryDistance, cartValue}
+            numberOfItems, deliveryDistance, cartValue, orderTime}
         )
         setDeliveryFee(fee);
     }
@@ -74,7 +75,9 @@ function Form() {
                     id="orderTime"
                     name="orderTime"
                     placeholder="Select Order Time"
-                    min={now}
+                    min={now.toISOString().slice(0, 16)}
+                    value={orderTime}
+                    onChange={(e) => setOrderTime(e.target.value)}
                 />
             </div>
 
