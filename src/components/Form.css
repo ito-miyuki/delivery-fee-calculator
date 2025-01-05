@@ -1,0 +1,57 @@
+#form-container {
+    background-color: white;
+    border: solid;
+    border-color: rgba(0,157,224);
+    border-width: medium;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem auto;
+    margin: 2rem auto;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px;
+    gap: 1rem;
+}
+
+input {
+    padding: 0.1em;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+}
+
+.delivery-price {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    font-size: 1.5em;
+}
+
+button {
+    background-color: rgba(0,157,224);
+    border: 1px solid;
+    border-color: rgba(0,157,224);
+    border-radius: 8px;
+    color: white;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;;
+  }
+
+  button:hover {
+    background-color: rgba(0,157,224, 0.8);
+    transform: scale(1.05);
+  }
