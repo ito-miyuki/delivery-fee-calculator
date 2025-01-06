@@ -1,8 +1,8 @@
 :root {
   font-family: Inter, ystem-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
   font-weight: 400;
   color: black;
   background-color: white;
   font-synthesis: none; /* when there is no bold/italic etc in the specified font, it doesn't do anything*/
+  height: 100%;
 }
