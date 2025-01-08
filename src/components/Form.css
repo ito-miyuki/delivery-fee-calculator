@@ -15,16 +15,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 80px;
-    gap: 1rem;
+    padding: 40px;
+    gap: 16px;
 }
 
 input {
-    padding: 0.1em;
+    padding: 1.5px;
     border-radius: 6px;
     border: 1px solid #ccc;
-    margin-left: 0.3em;
-    margin-right: 0.3em;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .delivery-price {
@@ -34,7 +34,7 @@ input {
 }
 
 .price {
-    font-size: 1.5em;
+    font-size: 25px;
 }
 
 button {
@@ -43,8 +43,8 @@ button {
     border-color: rgba(0,157,224);
     border-radius: 8px;
     color: white;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
+    padding: 10px 20px;
+    font-size: 15px;
     font-weight: 500;
     cursor: pointer;;
   }
