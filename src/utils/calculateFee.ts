@@ -12,14 +12,15 @@
 
         let feeForCart = 0;
         if (cartValue < 10) {
-            feeForCart = 10 - cartValue; // should I do something to get number in float?
+            feeForCart = 10 - cartValue;
         } else {
-            feeForCart = 2;
+            feeForCart = 0;
         }
 
-        let feeForDistance = 1;
-        if (deliveryDistance >= 1000) {
-            feeForDistance = Math.floor(deliveryDistance / 500); // there is no Int type
+        let feeForDistance = 2;
+        if (deliveryDistance > 1000) { 
+            const additionalMeters = deliveryDistance - 1000;
+            feeForDistance += Math.ceil(additionalMeters / 500);
         }
 
         let feeForItemsNum = 0;
@@ -35,7 +36,7 @@
         const selectedTime = new Date(orderTime);
 
 
-        if (selectedTime.getHours() >= 15 && selectedTime.getHours() <= 18) { // after 19:00 is fine
+        if (selectedTime.getHours() >= 15 && selectedTime.getHours() <= 18) {
             total *= 1.2;
         }
 
