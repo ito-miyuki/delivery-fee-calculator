@@ -14,12 +14,14 @@
         if (cartValue < 10) {
             feeForCart = 10 - cartValue; // should I do something to get number in float?
         } else {
-            feeForCart = 2;
+            feeForCart = 0; // it's a mistake, this shouls be 0, it was 2 before
         }
 
-        let feeForDistance = 1;
-        if (deliveryDistance >= 1000) {
-            feeForDistance = Math.floor(deliveryDistance / 500); // there is no Int type
+        let feeForDistance = 2; // it's a mistake, this shouls be 2, it was 1 before
+        if (deliveryDistance > 1000) { // it's a mistake, this shouls be >, not >=
+            // feeForDistance = Math.floor(deliveryDistance / 500); // there is no Int type
+            const additionalMeters = deliveryDistance - 1000;
+            feeForDistance += Math.ceil(additionalMeters / 500);
         }
 
         let feeForItemsNum = 0;
