@@ -5,4 +5,5 @@
   background-color: white;
   font-synthesis: none; /* when there is no bold/italic etc in the specified font, it doesn't do anything*/
   height: 100%;
+  padding: 0px;
 }

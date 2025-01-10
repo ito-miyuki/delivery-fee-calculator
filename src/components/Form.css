@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
 }
 
 #form{
@@ -78,25 +78,10 @@ button {
         display: flex;
         flex-direction: column;
     }
-    
-    .price {
-        font-size: 25px;
-    }
-    
+
     button {
-        background-color: rgba(0,157,224);
-        border: 1px solid;
-        border-color: rgba(0,157,224);
-        border-radius: 8px;
-        color: white;
-        padding: 10px 20px;
-        font-size: 15px;
         font-weight: 500;
         cursor: pointer;;
-      }
-    
-      button:hover {
-        background-color: rgba(0,157,224, 0.8);
-        transform: scale(1.05);
+        padding: 10px 20px;
       }
 }
