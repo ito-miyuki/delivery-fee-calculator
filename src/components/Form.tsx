@@ -1,6 +1,10 @@
-import "./Form.css"
 import { useState } from "react";
+import "./Form.css"
 import calculateFee from "../utils/calculateFee";
+import apple from "../assets/apple.svg"
+import truck from "../assets/truck.svg"
+import cart from "../assets/cart.svg"
+import clock from "../assets/clock.svg"
 
 const now = new Date();
 
@@ -26,6 +30,7 @@ function Form() {
         <div id="form-container">
             <form id="form" onSubmit={handleSubmit}>
                 <div className="form-group">
+                    <img className="icon" src={cart} alt="cart-icon" />
                     <label htmlFor="cartValue" data-testid="cart-value-label">Cart value</label>
                     <div className="input-wrapper">
                         <input
@@ -44,6 +49,7 @@ function Form() {
                 </div>
 
                 <div className="form-group">
+                    <img className="icon" src={truck} alt="truck-icon" />
                     <label htmlFor="deliveryDistance">Delivery distance</label>
                     <div className="input-wrapper">
                         <input
@@ -61,6 +67,7 @@ function Form() {
                 </div>
 
                 <div className="form-group">
+                    <img className="icon" src={apple} alt="apple-icon" />
                     <label htmlFor="numberOfItems">Amount of items</label>
                     <div className="input-wrapper">
                         <input
@@ -77,6 +84,7 @@ function Form() {
                 </div>
 
                 <div className="form-group">
+                    <img className="icon" src={clock} alt="clock-icon" />
                     <label htmlFor="orderTime">Time</label>
                     <div className="input-wrapper">
                         <input

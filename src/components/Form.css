@@ -26,6 +26,11 @@ input {
     margin-right: 5px;
 }
 
+.icon {
+    height: 15px;
+    width: 15px;
+}
+
 .delivery-price {
     text-align: center;
     display: flex;
