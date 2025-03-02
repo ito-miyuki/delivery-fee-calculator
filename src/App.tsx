@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <header >
-        <h1>Wolt Delivery Fee Calculator</h1>
+        <h1>Delivery Fee Calculator</h1>
       </header>
       <Form />
     </>

@@ -1,14 +1,24 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0px;;
 }
 
 h1 {
-  font-size: 2.0em;
-  color: #009de0;;
+  font-size: 32px;
+  color: #009de0;
+  padding: 40px;
+  margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+    padding: 20px 0px;
+    text-align: center;
+  }
 }
